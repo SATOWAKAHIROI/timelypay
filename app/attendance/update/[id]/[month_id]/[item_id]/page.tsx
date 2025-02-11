@@ -23,7 +23,7 @@ export default function UpdateAttendance(context: any){
             setMonthId(month_id);
             setItemId(item_id);
             try{
-                const response = await fetch(`http://localhost:3000/api/attendance/readOne/${id}/${month_id}/${item_id}`, {cache: "no-cache"});
+                const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/attendance/readOne/${id}/${month_id}/${item_id}`, {cache: "no-cache"});
                 const jsonData = await response.json();
                 const rows = await jsonData.rows[0];
                 setDate(await rows.date);
@@ -46,7 +46,7 @@ export default function UpdateAttendance(context: any){
         const month_id: string = await params.month_id;
         const item_id: number = await params.item_id;
         try{
-            const response = await fetch(`http://localhost:3000/api/attendance/update/${id}/${month_id}/${item_id}`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/attendance/update/${id}/${month_id}/${item_id}`, {
                 method: "PUT",
                 headers: {
                     "Accept": "application/json",
@@ -78,7 +78,7 @@ export default function UpdateAttendance(context: any){
             const id: number = await params.id;
             const month_id: string = await params.month_id;
             const item_id: number = await params.item_id;
-            const response = await fetch(`http://localhost:3000/api/attendance/delete/${id}/${month_id}/${item_id}`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/attendance/delete/${id}/${month_id}/${item_id}`, {
                 method: "DELETE",
                 headers: {
                     "Accept": "application/json",

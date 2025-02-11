@@ -30,7 +30,7 @@ export default function UserMypage(context: any){
     }
 
     const getUserNameById = async(id: number) => {
-        const response = await fetch(`http://localhost:3000/api/user/mypage/${id}`, {cache: "no-store"});
+        const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/user/mypage/${id}`, {cache: "no-store"});
         const jsonData = await response.json();
         const name: string = jsonData.name;
         const email: string = jsonData.email;

@@ -17,7 +17,7 @@ export default function createAttendance(context: any) {
         const params: any = await context.params;
         const id: number = await params.id;
         try{
-            const response = await fetch(`http://localhost:3000/api/attendance/create/${id}`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/attendance/create/${id}`, {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",

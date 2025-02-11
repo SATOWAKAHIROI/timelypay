@@ -20,7 +20,7 @@ export default function readMonthAttendance(context: any) {
             const month_id = await params.month_id;
             setId(id);
             setMonthId(month_id);
-            const response = await fetch(`http://localhost:3000/api/attendance/readMonth/${id}/${month_id}`, {cache: "no-cache"});
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/attendance/readMonth/${id}/${month_id}`, {cache: "no-cache"});
             const jsonData = await response.json();
             const attendanceList = await jsonData.rows;
             setAttendanceList(attendanceList);
