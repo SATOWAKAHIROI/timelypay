@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import db from "@/util/database";
+import mysql from "mysql2/promise";
 
 export async function PUT(request: NextRequest, context: any) {
     const reqBody = await request.json();
     try{
+        const db = await mysql.createConnection(process.env.DATABASE_URL!);
         const params: any = await context.params;
         const item_id: number = await params.item_id;
         const sql: string = `UPDATE ATTENDANCE SET date = ?, start_time = ?, end_time = ? WHERE id = ?;`;

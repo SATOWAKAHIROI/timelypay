@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import db from "@/util/database";
+import mysql from "mysql2/promise";
 
 export async function GET(request: NextRequest, context: any) {
     try{
+        const db = await mysql.createConnection(process.env.DATABASE_URL!);
         const params: any = await context.params;
         const id: number = await params.id;
         const month_id: string = await params.month_id;

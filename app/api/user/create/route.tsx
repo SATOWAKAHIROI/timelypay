@@ -1,5 +1,5 @@
 import { NextRequest,  NextResponse } from "next/server";
-import db from "@/util/database";
+import mysql from "mysql2/promise";
 
 export async function POST(request: NextRequest) {
     //フロントエンドからリクエストを受け取る
@@ -7,6 +7,7 @@ export async function POST(request: NextRequest) {
     
     try{
         //ユーザーを追加
+        const db = await mysql.createConnection(process.env.DATABASE_URL!);
         const sql: string = `INSERT INTO USER (name, email, password) VALUES (?, ?, ?);`;
         const values: string[] = [reqBody.name, reqBody.email, reqBody.password];
         await db.execute(sql, values);

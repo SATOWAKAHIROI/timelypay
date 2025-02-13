@@ -33,9 +33,13 @@ export default function readMonthAttendance(context: any) {
 
     return(
         <div className="p-6 bg-blue-50 rounded-lg shadow-lg">
-            <h1 className="text-2xl font-bold text-blue-700 mb-4">
-                {year}年{month}月の勤怠情報
-            </h1>
+            <div className="flex justify-between">
+                <h1 className="text-2xl font-bold text-blue-700 mb-4">
+                    {year}年{month}月の勤怠情報
+                </h1>
+                <a href={`/user/mypage/${id}`} className="block mx-[10px] bg-stone-300 hover:bg-stone-400 p-[10px] rounded-lg transition-all duration-300 cursor-pointer mb-[10px]">マイページへ移動</a>
+            </div>
+            
             <table className="w-full border border-blue-300 rounded-lg overflow-hidden shadow-md">
                 <thead className="bg-blue-600 text-white">
                     <tr>

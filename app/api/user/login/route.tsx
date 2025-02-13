@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
-import db from "@/util/database";
 import { error } from "console";
 import { SignJWT } from "jose";
+import mysql from "mysql2/promise";
 
 export async function POST(request: NextRequest) {
     //emailアドレスとパスワードを取得
@@ -13,6 +13,7 @@ export async function POST(request: NextRequest) {
     }
 
     try{
+        const db = await mysql.createConnection(process.env.DATABASE_URL!);
         const sql: string = `SELECT * FROM USER WHERE email = ?`;
         const [rows]: any = await db.query(sql, [reqBody.email]);
 
