@@ -64,39 +64,48 @@ export default function UserMypage(context: any){
         return (
             <>
                 {loaded && (
-                    <div className="flex items-center justify-center h-screen w-screen">
-                        <header className="fixed top-0 left-0 w-full h-[100px] bg-zinc-300 z-10 opacity-80">
-                            <div className="flex justify-between items-center">
-                                <a href="/"><Image src="/favicon.png" alt="favicon" width={100} height={100}/></a>
-                                <ul className="flex items-center h-[50px]">
-                                    <li className="block bg-stone-50 hover:bg-stone-400 p-[10px] rounded-lg transition-all duration-300 cursor-pointer"><Link href={`/user/update/${id}`}>ユーザー情報編集</Link></li>
-                                    <li className="block mx-[10px] bg-stone-50 hover:bg-stone-400 p-[10px] rounded-lg transition-all duration-300 cursor-pointer"><Link onClick={() => removeToken()} href="/">ログアウト</Link></li>
-                                </ul>
+                    <div className="flex flex-col items-center justify-start h-screen w-screen px-4">
+                        <header className="fixed top-0 left-0 w-full h-[80px] bg-zinc-300 z-10 opacity-80">
+                            <div className="flex justify-between items-center px-4">
+                            <a href="/"><Image src="/favicon.png" alt="favicon" width={80} height={80}/></a>
+                            <ul className="flex items-center space-x-4">
+                                <li className="bg-stone-50 hover:bg-stone-400 p-3 rounded-lg transition-all duration-300 cursor-pointer">
+                                <Link href={`/user/update/${id}`}>ユーザー情報編集</Link>
+                                </li>
+                                <li className="bg-stone-50 hover:bg-stone-400 p-3 rounded-lg transition-all duration-300 cursor-pointer">
+                                <Link onClick={() => removeToken()} href="/">ログアウト</Link>
+                                </li>
+                            </ul>
                             </div>
                         </header>
-                        <h1 className="fixed top-60">お帰りなさい。{name}さん</h1>
-                        <div>
-                            <ul>
-                                <li className="block bg-sky-200 hover:bg-sky-300 p-[10px] rounded-lg transition-all duration-300 cursor-pointer mb-[5px]"><a href={`/attendance/create/${id}`}>勤怠情報の入力</a></li>
-                                <li className="block bg-sky-200 hover:bg-sky-300 p-[10px] rounded-lg transition-all duration-300 cursor-pointer"><a href={`/attendance/readMonth/${id}/${month}`}>勤怠情報の閲覧</a></li>
-                            </ul>
 
+                        <h1 className="mt-[120px] text-center text-2xl sm:text-3xl font-bold">お帰りなさい。{name}さん</h1>
+
+                        <div className="mt-10 w-full">
+                            <ul className="space-y-4">
+                            <li className="bg-sky-200 hover:bg-sky-300 p-4 rounded-lg transition-all duration-300 cursor-pointer">
+                                <a href={`/attendance/create/${id}`} className="block text-center">勤怠情報の入力</a>
+                            </li>
+                            <li className="bg-sky-200 hover:bg-sky-300 p-4 rounded-lg transition-all duration-300 cursor-pointer">
+                                <a href={`/attendance/readMonth/${id}/${month}`} className="block text-center">勤怠情報の閲覧</a>
+                            </li>
+                            </ul>
                         </div>
-                        
                     </div>
-                   
                 )}
+
                 {!loaded && (
                     <motion.div
-                        initial={{opacity: 1}}
-                        animate={{opacity: 0}}
-                        transition={{duration: 1.5}}
-                        className="flex items-center justify-center h-screen w-screen"
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: 0 }}
+                    transition={{ duration: 1.5 }}
+                    className="flex items-center justify-center h-screen w-screen"
                     >
-                        <Image src="/loading.png" alt="loading" width={200} height={200}></Image>
+                        <Image src="/loading.png" alt="loading" width={200} height={200} />
                     </motion.div>
                 )}
             </>
+
         );
     }
 }

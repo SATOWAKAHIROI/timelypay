@@ -37,15 +37,34 @@ export default function LoginUser(){
     };
     
     return (
-        <div className="h-screen w-screen">
-            <div className="flex flex-col items-center justify-center mt-[80px]">
-                <h1 className="font-bold text-5xl mb-[50px]">ユーザーログイン</h1>
-                <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center">
-                    <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" name="email" placeholder="email" required className="block block w-80 h-10 border-2 border-gray-500 rounded-lg bg-white shadow-md mb-[8px] pl-[4px]"/>
-                    <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" placeholder="password" required className="block block w-80 h-10 border-2 border-gray-500 rounded-lg bg-white shadow-md mb-[8px] pl-[4px]" />
-                    <button className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 w-80">登録</button>
+        <div className="h-screen w-screen flex items-center justify-center px-4">
+            <div className="flex flex-col items-center justify-center w-full max-w-md mt-20">
+                <h1 className="font-bold text-3xl sm:text-5xl mb-8">ユーザーログイン</h1>
+                <form onSubmit={handleSubmit} className="flex flex-col items-center w-full">
+                    <input 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)} 
+                        type="email" 
+                        name="email" 
+                        placeholder="メールアドレス" 
+                        required 
+                        className="block w-full h-10 border-2 border-gray-500 rounded-lg bg-white shadow-md mb-2 px-3"
+                    />
+                    <input 
+                        value={password} 
+                        onChange={(e) => setPassword(e.target.value)} 
+                        type="password" 
+                        name="password" 
+                        placeholder="パスワード" 
+                        required 
+                        className="block w-full h-10 border-2 border-gray-500 rounded-lg bg-white shadow-md mb-4 px-3"
+                    />
+                    <button className="w-full py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                        ログイン
+                    </button>
                 </form>
             </div>
         </div>
+
     );
 }
