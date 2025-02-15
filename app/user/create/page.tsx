@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function CreateUser() {
 
@@ -8,6 +9,7 @@ export default function CreateUser() {
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const router = useRouter();
 
     //登録ボタン送信後の処理
     const handleSubmit = async(e: React.FormEvent) => {
@@ -29,12 +31,13 @@ export default function CreateUser() {
             if(jsonData.result === "error"){
                 throw new Error;
             }
+            const id: number = await jsonData.id;
             alert(jsonData.result);
+            router.push(`/user/mypage/${id}`);
         }catch{
             alert("ユーザー登録失敗");
         }
     }
-
 
     return (
         <div className="h-screen w-screen flex items-center justify-center px-4">
