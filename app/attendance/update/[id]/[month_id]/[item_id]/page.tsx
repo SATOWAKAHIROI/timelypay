@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function UpdateAttendance(context: any){
 
@@ -98,6 +99,19 @@ export default function UpdateAttendance(context: any){
 
     return(
         <div className="h-screen w-screen flex items-center justify-center px-4">
+            <header className="fixed top-0 left-0 w-full h-[60px] sm:h-[100px] bg-zinc-300 z-10 opacity-80">
+                <div className="flex justify-between items-center h-full px-4 sm:px-8">
+                    <a href="/" className="h-full flex items-center">
+                        <Image src="/favicon.png" alt="favicon" width={60} height={60} />
+                    </a>
+                    <ul className="flex items-center h-full sm:h-[50px]">
+                        <li className="flex items-center h-[40px] bg-stone-50 hover:bg-stone-400 p-[8px] sm:h-full p-[10px] rounded-lg transition-all duration-300 cursor-pointer">
+                            <a href={`/attendance/readMonth/${id}/${month_id}`}>勤怠一覧へ移動</a>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+
             <div className="flex flex-col items-center justify-center w-full max-w-md mt-20">
                 <h1 className="font-bold text-3xl sm:text-5xl mb-8">勤怠編集</h1>
                 <form onSubmit={handleSubmit} className="flex flex-col items-center w-full">
