@@ -41,10 +41,10 @@ export default function Home() {
                       <Image src="/favicon.png" alt="favicon" width={60} height={60} />
                   </a>
                   <ul className="flex items-center h-full sm:h-[50px]">
-                      <li className="flex items-center h-full bg-stone-50 hover:bg-stone-400 p-[8px] sm:p-[10px] rounded-lg transition-all duration-300 cursor-pointer">
+                      <li className="flex items-center h-[40px] bg-stone-50 hover:bg-stone-400 p-[8px] mr-[20px] sm:h-full p-[10px] rounded-lg transition-all duration-300 cursor-pointer">
                           <a href="./user/login">ログイン</a>
                       </li>
-                      <li className="flex items-center h-full mx-2 sm:mx-4 bg-stone-50 hover:bg-stone-400 p-[8px] sm:p-[10px] rounded-lg transition-all duration-300 cursor-pointer">
+                      <li className="flex items-center h-[40px] bg-stone-50 hover:bg-stone-400 p-[8px] sm:h-full p-[10px] rounded-lg transition-all duration-300 cursor-pointer">
                           <a href="./user/create">会員登録</a>
                       </li>
                   </ul>

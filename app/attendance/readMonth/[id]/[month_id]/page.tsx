@@ -66,13 +66,13 @@ export default function readMonthAttendance(context: any) {
                     </a>
                     <ul className="flex items-center h-full sm:h-[50px]">
                         <li className="flex items-center h-[40px] bg-stone-50 hover:bg-stone-400 p-[8px] sm:h-full p-[10px] mr-[5px] rounded-lg transition-all duration-300 cursor-pointer">
-                            <a href={`/attendance/readMonth/${id}/${getPreviousMonth(month_id)}`}>前の月へ</a>
+                            <a href={`/attendance/readMonth/${id}/${getPreviousMonth(month_id)}`} className="text-xs sm:text-base">先月へ</a>
                         </li>
                         <li className="flex items-center h-[40px] bg-stone-50 hover:bg-stone-400 p-[8px] sm:h-full p-[10px] mr-[5px] rounded-lg transition-all duration-300 cursor-pointer">
-                            <a href={`/attendance/readMonth/${id}/${getNextMonth(month_id)}`}>次の月へ</a>
+                            <a href={`/attendance/readMonth/${id}/${getNextMonth(month_id)}`} className="text-xs sm:text-base">翌月へ</a>
                         </li>
                         <li className="flex items-center h-[40px] bg-stone-50 hover:bg-stone-400 p-[8px] sm:h-full p-[10px] rounded-lg transition-all duration-300 cursor-pointer">
-                            <a href={`/user/mypage/${id}`}>マイページへ移動</a>
+                            <a href={`/user/mypage/${id}`} className="text-xs sm:text-base">マイページへ移動</a>
                         </li>
                     </ul>
                 </div>
@@ -102,7 +102,7 @@ export default function readMonthAttendance(context: any) {
                                 onClick={() => router.push(`/attendance/update/${id}/${month_id}/${item.id}`)}
                                 className="odd:bg-blue-100 even:bg-white hover:bg-blue-200 transition cursor-pointer"
                             >
-                                <td className="px-3 sm:px-4 py-2 border border-blue-300 text-center text-sm">
+                                <td className="px-3 sm:px-4 py-2 border border-blue-300 text-center text-sm sm:text-base">
                                 {item.day}
                                 </td>
                                 <td className="px-3 sm:px-4 py-2 border border-blue-300 text-center">
