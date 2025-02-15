@@ -35,7 +35,7 @@ export default function UserUpdate(context: any) {
         const params: any = await context.params;
         setId(params.id);
         try{
-            const response = await fetch(`http://localhost:3000/api/user/update/${id}`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/user/update/${id}`, {
                 method: "PUT",
                 headers: {
                     "Accept": "application/json",

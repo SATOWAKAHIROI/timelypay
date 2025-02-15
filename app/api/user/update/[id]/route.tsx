@@ -4,6 +4,7 @@ import mysql from "mysql2/promise";
 export async function PUT(request: NextRequest, context: any) {
     const reqBody = await request.json();
     try{
+        console.log(process.env.DATABASE_URL);
         const db = await mysql.createConnection(process.env.DATABASE_URL!);
         const params = await context.params;
         const id = await params.id;
